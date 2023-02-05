@@ -185,3 +185,53 @@ Shader "VariantsTest"
 最后生成的变体： AC AD BC BD
 
 所以变体会造成代码几何倍数的增加。
+
+
+
+## 控制Shader变体的生成
+
+ 项目中shader变体的生成方式主要有三种，其优缺点如下图所示：
+
+| 生成方式                                                     | 优点                                             | 缺点                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
+| shader与material打在一个包中                                 | 变体根据material中的keywords自动生成             | 1. 多个不同的material包中可能存在相同的shader变体，造成资源冗余. <br />2.若在程序运行时动态改变material的keyword，使用shader_feature定义的宏，其变体可能并没有被生成 |
+| Shader单独打包，使用multi_compile定义全部宏                  | 全部变体都被生成，不会发生需要的变体未生成的情况 | 1.生成的变体数量庞大，严重浪费资源                           |
+| Shader单独打包，shader_feature（需要使用ShaderVariantCollection生成变体）与multi_compile（还是会生成所有变体）结合使用 | 能够有效控制shader_feature变体数量               | 1.如何确定哪些变体需要生成 2.容易遗漏需要生成的变体，特别是需要动态替换的变体 |
+
+> https://github.com/Nicholas10128/AAAResearch/blob/master/Experiences/Shader%E6%89%93%E5%8C%85%E6%A8%A1%E5%9D%97/Shader%E6%89%93%E5%8C%85%E6%A8%A1%E5%9D%97.md#shader%E5%8F%98%E4%BD%93%E6%94%B6%E9%9B%86%E4%B8%8E%E6%89%93%E5%8C%85
+
+
+
+## 测试结果
+
+1. Shader和material打在一个包中
+
+   ![](./pic/2.png)
+
+2. Shader单独一个包
+
+   ![](./pic/4.png)
+
+![](./pic/5.jpg)
+
+可以看出使用`multi_compile`的shader切换正常 (因为`multi_compile`都会生成变体)
+
+而使用`shader_feature`的shader无法正常切换（缺少变体）
+
+## ShaderVariantCollection解决
+
+创建变体收集器
+
+把shader_feature用到的变体加进去 
+
+![](./pic/5.png)
+
+![](./pic/6.jpg)
+
+分别测试是否和shader打到一个包里，结果都测试后shader正常。这点和网上查到的资料不一致。
+
+> 参考资料：
+>
+> http://events.jianshu.io/p/48ad75f0b4b9
+>
+> https://zhuanlan.zhihu.com/p/68888831
