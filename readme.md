@@ -230,6 +230,30 @@ Shader "VariantsTest"
 
 分别测试是否和shader打到一个包里，结果都测试后shader正常。这点和网上查到的资料不一致。
 
+
+
+### 其他尝试
+
+1. shader variant collection 不打进 ab包中： shader变体失败
+2. shader variant collection 放进Resources中： shader变体成功。Resources也是个特殊的ab包，这个比较好理解。
+
+比较成功与失败的两次shader.ab文件也可以发现。
+
+![](./pic/7.png)![](./pic/8.png)
+
+确实大了0.1kb的内容，但是`AssetStudio`或者`uwa`的ab资源解析均无法解析出结果，所以内容不得而知，但是确实shader的glsl代码编译的内容多了。
+
+
+
+## 总结
+
+1. `multi_compile`无论如何都会生成所有的变体
+2. `shader_feature`会通过默认值 和 `shader variant collection`配置文件的内容生成变体
+3.  `shader variant collection` 测试后发现放哪里都可以，打进ab / Resources中即可
+4. `shader`编写上取舍`multi_compile`和`shader_feature`。在明确知道组合的情况下，`shader_feature` + `collection`的方式产生的冗余变体最少，但是收集`collection`比较麻烦
+
+
+
 > 参考资料：
 >
 > http://events.jianshu.io/p/48ad75f0b4b9

@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Assets/RawAssets/Animation
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: aaa86b455f3d6094cb5c0465db903d0c
+    m_Address: Assets/RawAssets/Shader/ShaderVariants.shadervariants
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f6ff4086179318446a4787cfb4038d50, type: 2}
   m_SchemaSet:

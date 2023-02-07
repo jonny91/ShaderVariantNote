@@ -8,13 +8,6 @@ ShaderVariantCollection:
   m_PrefabAsset: {fileID: 0}
   m_Name: ShaderVariants
   m_Shaders:
-  - first: {fileID: 4800000, guid: 061f9644289747d38657fa35df72709a, type: 3}
-    second:
-      variants:
-      - keywords: OUTLINE_GREEN
-        passType: 14
-      - keywords: OUTLINE_RED
-        passType: 14
   - first: {fileID: 4800000, guid: a510796cfddc4c7ebd18f527c51146f7, type: 3}
     second:
       variants:

@@ -46,7 +46,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f8650fab4b441a468be99c39e51cf50, type: 2}
   - {fileID: 11400000, guid: cefd2cdd9d5675b4cadb84fadf7181a9, type: 2}
   - {fileID: 11400000, guid: 2a9c091aee3dbb64db741367cf0d11b5, type: 2}
-  - {fileID: 11400000, guid: c3c192d6d29476746922f31906bfdcf0, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -118,7 +117,7 @@ MonoBehaviour:
           m_Key: HostingServiceUploadSpeed
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
-          m_Data: ServerData/Android;Library/com.unity.addressables/aa/Android/Android
+          m_Data: ServerData/Android
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
