@@ -18,14 +18,12 @@ public class Launcher : MonoBehaviour
 {
     private void Start()
     {
-        Addressables.InitializeAsync(true).Completed += handle =>
+        Addressables.InitializeAsync().Completed += handle =>
         {
-            Addressables.UpdateCatalogs(true).Completed += h =>
+            Addressables.UpdateCatalogs().Completed += h =>
             {
                 Addressables.LoadSceneAsync("Assets/Scenes/TestScene.unity");
             };
         };
     }
-    
-    
 }
